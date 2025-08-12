@@ -23,7 +23,7 @@
                     <h3 class="text-white mt-3 tracking-tighter text-3xl"><%= user.name %></h3>
                     <h5 class="text-white text-sm"><%= user.email %></h5>
                     <div class="flex justify-between mt-3">
-                        <a class="text-white" href="">Edit user</a>
+                        <a class="text-white" href="/edit/<%= user._id %>">Edit user</a>
                         <a class="text-red-600" href="/delete/<%= user._id %>">Delete user</a>
                     </div>
                 </div>
