@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const bcrypt = require('bcrypt');
 
 app.set('view engine', 'ejs');
 app.use(express.json());
@@ -12,7 +13,9 @@ app.use(cookieParser())
 const userModel = require('./models/user');
 
 app.get('/', (req, res) => {
-     res.render('index');
+     bcrypt.compare("ashu", "$2b$10$f5QByTJy/wAo21dRfqoTd.gqtXC5Av1Zi6mrPXSLQu0PA08vcybVi", function(err, result) {
+      console.log(result)
+});
    });
     
 app.post('/create', async (req, res) => {
@@ -54,7 +57,7 @@ app.get('/cookies', function (req, res) {
 
 app.get('/cookieRead', function (req, res) {
    console.log(req.cookies);
-   res.send('read page')
-})
+   res.send('read page');
+});
 
 app.listen(3000);
